@@ -1,0 +1,290 @@
+/* ===== Global Styles ===== */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f7f7f7;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ===== Navbar ===== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ff6347; /* Tomato color */
+  padding: 1rem 2rem;
+  color: white;
+  flex-wrap: wrap;
+}
+
+.navbar .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.navbar .nav-right a,
+.navbar .nav-right button {
+  margin-left: 1rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: white;
+  color: #ff6347;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.navbar .nav-right a:hover,
+.navbar .nav-right button:hover {
+  background-color: #ffe5e0;
+}
+
+/* ===== Auth Forms (Login/Register) ===== */
+.auth-form {
+  max-width: 400px;
+  margin: 3rem auto;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.auth-form h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.auth-form input {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.auth-form button {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: #ff6347;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.auth-form button:hover {
+  background-color: #e5533d;
+}
+
+/* ===== MenuPage Grid ===== */
+.menu-page {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+/* ===== MenuCard ===== */
+.menu-card {
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: center;
+  padding: 1rem;
+  transition: 0.3s;
+}
+
+.menu-card:hover {
+  transform: translateY(-5px);
+}
+
+.menu-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.menu-card h3 {
+  margin: 0.5rem 0;
+}
+
+.menu-card p {
+  font-size: 0.9rem;
+  margin: 0.3rem 0;
+}
+
+.menu-card button {
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #ff6347;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.menu-card button:hover {
+  background-color: #e5533d;
+}
+
+/* ===== Category Tabs ===== */
+.category-tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.category-tabs button {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ff6347;
+  border-radius: 5px;
+  background-color: white;
+  color: #ff6347;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.category-tabs button.active,
+.category-tabs button:hover {
+  background-color: #ff6347;
+  color: white;
+}
+
+/* ===== Search Box ===== */
+.search-box {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto 1.5rem;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/* ===== Pagination ===== */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+  gap: 0.5rem;
+}
+
+.pagination button {
+  padding: 0.5rem 0.8rem;
+  border: 1px solid #ff6347;
+  border-radius: 5px;
+  background-color: white;
+  color: #ff6347;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.pagination button.active,
+.pagination button:hover {
+  background-color: #ff6347;
+  color: white;
+}
+
+/* ===== Checkout ===== */
+.checkout {
+  max-width: 600px;
+  margin: 2rem auto;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.checkout h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.checkout ul {
+  list-style: none;
+  padding: 0;
+}
+
+.checkout ul li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.checkout h3 {
+  margin-top: 1rem;
+  text-align: right;
+}
+
+.checkout button {
+  margin-top: 1rem;
+  width: 100%;
+  padding: 0.8rem;
+  background-color: #ff6347;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.checkout button:hover {
+  background-color: #e5533d;
+}
+
+/* ===== Toast ===== */
+.toast {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background-color: #333;
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  animation: fadeInOut 3s forwards;
+}
+
+@keyframes fadeInOut {
+  0% {opacity: 0; transform: translateY(20px);}
+  10%, 90% {opacity: 1; transform: translateY(0);}
+  100% {opacity: 0; transform: translateY(20px);}
+}
+
+/* ===== Responsive ===== */
+@media screen and (max-width: 768px) {
+  .menu-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+  .navbar {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
