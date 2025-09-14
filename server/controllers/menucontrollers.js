@@ -1,16 +1,15 @@
 import Menu from "../models/menu.js";
 
-// Get all menu items
 export const getMenuItems = async (req, res) => {
   try {
     const items = await Menu.find();
-    res.json({ items: items || [] });  // always return items array
+    res.json({ items: items || [] });  
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
 };
 
-// Add menu item (admin only)
+
 export const addMenuItem = async (req, res) => {
   try {
     const newItem = await Menu.create(req.body);
@@ -20,7 +19,7 @@ export const addMenuItem = async (req, res) => {
   }
 };
 
-// Update menu item (admin only)
+
 export const updateMenuItem = async (req, res) => {
   try {
     const updatedItem = await Menu.findByIdAndUpdate(req.params.id, req.body, { new: true });
@@ -30,7 +29,7 @@ export const updateMenuItem = async (req, res) => {
   }
 };
 
-// Delete menu item (admin only)
+
 export const deleteMenuItem = async (req, res) => {
   try {
     await Menu.findByIdAndDelete(req.params.id);

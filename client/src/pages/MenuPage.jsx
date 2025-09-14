@@ -43,39 +43,33 @@ export default function MenuPage() {
   const itemsPerPage = 5;
   const start = (page - 1) * itemsPerPage;
   const paginatedItems = filteredItems.slice(start, start + itemsPerPage);
-
-  // ✅ Fix: never let totalPages be less than 1
   const totalPages = Math.max(1, Math.ceil(filteredItems.length / itemsPerPage));
 
   return (
-    <div className="p-6 max-w-4xl mx-auto">
+    <div className="p-4 sm:p-6 max-w-4xl mx-auto">
       {toast && (
-        <Toast
-          message={toast.message}
-          type={toast.type}
-          onClose={() => setToast(null)}
-        />
+        <Toast message={toast.message} type={toast.type} onClose={() => setToast(null)} />
       )}
 
-      <h1 className="text-2xl font-bold mb-4">Menu</h1>
+      <h1 className="text-2xl sm:text-3xl font-bold mb-4 text-center sm:text-left">Menu</h1>
 
       <SearchBox query={search} setQuery={setSearch} />
       <CategoryTabs category={category} setCategory={setCategory} />
 
-      <ul className="mt-4">
+      <ul className="mt-4 space-y-3">
         {paginatedItems.map((item) => (
           <li
             key={item._id}
-            className="border rounded p-3 mb-2 shadow hover:bg-gray-50 flex justify-between items-center"
+            className="border rounded p-3 shadow hover:bg-gray-50 flex flex-col sm:flex-row justify-between items-start sm:items-center"
           >
-            <div>
-              <h2 className="text-lg font-semibold">{item.name}</h2>
-              <p className="text-sm text-gray-600">{item.description}</p>
-              <p className="font-bold">Price: Rs {item.price}</p>
+            <div className="mb-2 sm:mb-0">
+              <h2 className="text-lg sm:text-xl font-semibold">{item.name}</h2>
+              <p className="text-sm sm:text-base text-gray-600">{item.description}</p>
+              <p className="font-bold mt-1">Price: Rs {item.price}</p>
             </div>
             <button
               onClick={() => handleAddItem(item)}
-              className="bg-blue-500 text-white px-2 py-1 mt-2 rounded hover:bg-blue-600"
+              className="bg-blue-500 text-white px-3 py-1 mt-2 sm:mt-0 rounded hover:bg-blue-600 transition"
             >
               Add to Cart
             </button>

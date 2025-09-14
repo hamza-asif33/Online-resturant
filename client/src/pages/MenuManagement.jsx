@@ -7,10 +7,12 @@ export default function MenuManagement() {
     name: "",
     description: "",
     price: "",
-    category: "starter",
+    category: "Pizza",
   });
 
-  // ✅ Fetch menu items from DB
+  const categories = ["Pizza", "Burger", "Drinks", "Snacks"];
+
+  
   useEffect(() => {
     fetchMenu();
   }, []);
@@ -24,18 +26,18 @@ export default function MenuManagement() {
     }
   };
 
-  // ✅ Add new item
+  
   const handleAddItem = async () => {
     try {
       const res = await api.post("/menu", newItem);
-      setItems([...items, res.data]); // update UI instantly
-      setNewItem({ name: "", description: "", price: "", category: "starter" });
+      setItems([...items, res.data]); 
+      setNewItem({ name: "", description: "", price: "", category: "Pizza" });
     } catch (err) {
       console.error("Error adding item:", err);
     }
   };
 
-  // ✅ Delete item
+  
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this item?")) return;
     try {
@@ -46,14 +48,17 @@ export default function MenuManagement() {
     }
   };
 
-  // ✅ Update item (name, price, desc, category)
+  
   const handleUpdate = async (item) => {
     const newName = prompt("Enter new name", item.name);
     const newPrice = prompt("Enter new price", item.price);
     const newDesc = prompt("Enter new description", item.description);
-    const newCategory = prompt("Enter new category", item.category);
+    const newCategory = prompt(
+      `Enter new category (${categories.join(", ")})`,
+      item.category
+    );
 
-    if (!newName || !newPrice) return;
+    if (!newName || !newPrice || !categories.includes(newCategory)) return;
 
     try {
       const res = await api.put(`/menu/${item._id}`, {
@@ -63,7 +68,6 @@ export default function MenuManagement() {
         category: newCategory,
       });
 
-      // update UI
       setItems(items.map((i) => (i._id === item._id ? res.data : i)));
     } catch (err) {
       console.error("Error updating item:", err);
@@ -110,10 +114,11 @@ export default function MenuManagement() {
             }
             className="border p-2 rounded w-32"
           >
-            <option value="starter">Starter</option>
-            <option value="main">Main</option>
-            <option value="dessert">Dessert</option>
-            <option value="drink">Drink</option>
+            {categories.map((cat) => (
+              <option key={cat} value={cat}>
+                {cat}
+              </option>
+            ))}
           </select>
           <button
             onClick={handleAddItem}

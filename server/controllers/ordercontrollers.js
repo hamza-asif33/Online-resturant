@@ -1,7 +1,7 @@
 import Order from "../models/order.js";
 import Menu from "../models/menu.js";
 
-// Customer: Place a new order
+
 export const createOrder = async (req, res) => {
   try {
     const { items } = req.body;
@@ -19,7 +19,7 @@ export const createOrder = async (req, res) => {
 
     const order = await Order.create({
       user: req.user.id,
-      items,          // must match schema: { menu: ObjectId, quantity: Number }
+      items,          
       totalPrice,
       status: "pending", 
     });
@@ -30,7 +30,7 @@ export const createOrder = async (req, res) => {
   }
 };
 
-// Admin: Get all orders
+
 export const getOrders = async (req, res) => {
   try {
     const orders = await Order.find()
@@ -44,7 +44,7 @@ export const getOrders = async (req, res) => {
   }
 };
 
-// Customer: Get their own orders
+
 export const getUserOrders = async (req, res) => {
   try {
     const orders = await Order.find({ user: req.user.id })
@@ -57,7 +57,7 @@ export const getUserOrders = async (req, res) => {
   }
 };
 
-// Admin: Update order status
+
 export const updateOrderStatus = async (req, res) => {
   try {
     const { status } = req.body;
@@ -82,7 +82,7 @@ export const updateOrderStatus = async (req, res) => {
   }
 };
 
-// Customer: Cancel order (only if still pending)
+
 export const cancelOrder = async (req, res) => {
   try {
     const order = await Order.findOne({ _id: req.params.id, user: req.user.id });

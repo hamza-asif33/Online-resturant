@@ -1,7 +1,5 @@
-// src/pages/Register.jsx
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../context/AuthContext";
 import { api } from "../api/axios";
 
 export default function Register() {
@@ -10,22 +8,18 @@ export default function Register() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
-  const { login } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
+
     try {
-      const res = await api.post("/auth/register", {
-        name,
-        email,
-        password,
-        role: "customer",
-      });
-      if (res.data.token) {
-        login(res.data); // save token & user
-        navigate("/menu"); // redirect to menu
-      }
+      
+      await api.post("/auth/register", { name, email, password });
+
+      
+      alert("Registration successful! Please login.");
+      navigate("/login");
     } catch (err) {
       setError(err.response?.data?.message || "Registration failed");
     }

@@ -13,9 +13,9 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Routes
+
 app.use("/api/auth", authrouter);
-app.use("/api/menu", menurouter);  // ✅ frontend calls /api/menu
+app.use("/api/menu", menurouter);  
 app.use("/api/orders", orderrouter);
 app.use("/api/admin/orders", adminOrdersRoutes);
 app.use("/api/admin/stats", adminStatsRoutes);

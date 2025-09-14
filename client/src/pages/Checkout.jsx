@@ -36,7 +36,7 @@ export default function Checkout() {
       alert("✅ Order placed successfully!");
       clearCart();
 
-      // ✅ Redirect to Orders page for tracking
+      
       navigate("/orders");
     } catch (err) {
       console.error(err.response?.data || err.message);

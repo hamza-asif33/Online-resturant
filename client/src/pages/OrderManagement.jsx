@@ -7,7 +7,7 @@ export default function OrderManagement() {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const res = await api.get("/admin/orders"); // ✅ Correct endpoint
+        const res = await api.get("/admin/orders"); 
         setOrders(res.data);
       } catch (err) {
         console.error("Error fetching orders:", err);

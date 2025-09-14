@@ -1,11 +1,11 @@
 import Order from "../models/order.js";
 
-// GET all orders (admin)
+
 export const getAllOrders = async (req, res) => {
   try {
     const orders = await Order.find()
-      .populate("user", "name email")         // customer info
-      .populate("items.menu", "name price")   // menu item info, matches Order schema
+      .populate("user", "name email")         
+      .populate("items.menu", "name price")   
       .sort({ createdAt: -1 });
 
     res.json(orders);
@@ -15,7 +15,7 @@ export const getAllOrders = async (req, res) => {
   }
 };
 
-// Update order status
+
 export const updateOrderStatus = async (req, res) => {
   try {
     const { id } = req.params;

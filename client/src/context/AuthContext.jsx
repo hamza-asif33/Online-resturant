@@ -13,7 +13,6 @@ export function AuthProvider({ children }) {
     }
   });
 
-  // sync localStorage on mount
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
     if (storedUser && storedUser !== "undefined") {

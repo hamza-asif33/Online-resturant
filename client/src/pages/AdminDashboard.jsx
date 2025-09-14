@@ -1,4 +1,4 @@
-// src/pages/AdminDashboard.jsx
+
 import { useEffect, useState } from "react";
 import { api } from "../api/axios";
 
@@ -14,7 +14,7 @@ export default function AdminDashboard() {
  useEffect(() => {
   const fetchStats = async () => {
     try {
-      const res = await api.get("/admin/stats"); // token automatically sent
+      const res = await api.get("/admin/stats");
       setStats(res.data);
     } catch (err) {
       console.error("Error fetching stats:", err);
