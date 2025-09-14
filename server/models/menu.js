@@ -3,7 +3,8 @@ import mongoose, { model } from "mongoose";
  name:{type:String,required:true},
  description:{type:String},
   price: { type: Number, required: true },
-  category: { type: String, enum: ["starter", "main", "dessert", "drink"], required: true },
+category: { type: String, enum: ["Pizza", "Burger", "Drinks", "Snacks"], required: true },
+
   available: { type: Boolean, default: true },
  })
 

@@ -28,14 +28,17 @@ export default function MenuManagement() {
 
   
   const handleAddItem = async () => {
-    try {
-      const res = await api.post("/menu", newItem);
-      setItems([...items, res.data]); 
-      setNewItem({ name: "", description: "", price: "", category: "Pizza" });
-    } catch (err) {
-      console.error("Error adding item:", err);
-    }
-  };
+  try {
+    const res = await api.post("/menu", {
+      ...newItem,
+      price: Number(newItem.price), 
+    });
+    setItems([...items, res.data]);
+    setNewItem({ name: "", description: "", price: "", category: "Pizza" });
+  } catch (err) {
+    console.error("Error adding item:", err);
+  }
+};
 
   
   const handleDelete = async (id) => {
